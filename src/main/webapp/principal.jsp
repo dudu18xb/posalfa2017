@@ -59,42 +59,48 @@
                 </div>
             </div>
         </nav>
-        <h1>Olá <%=jogador.getNome()%></h1>
-        <%
-            lc = jogador.getLugar();
-        %>
+        <!-- mechendo no princial usando o boostrap -->
+        <div class="container">
+            <div class="row" style="background: #ccc;">
+                <div class="col-md-6">
+                    <legend>
+                        <h3 class="text-center"><i class="glyphicon glyphicon-user"></i> Olá <%=jogador.getNome()%></h3>
+                        <% lc = jogador.getLugar();%>
+                        <h4><i class="glyphicon glyphicon-home"></i> Você está no(a):
+                            <%=jogador.getLugar().getDescricao()%></h4>
 
+                        <pre style="margin-top: 10px;"><%
 
-        <h2>Você está no(a):
-            <%=jogador.getLugar().getDescricao()%></h2>
-        <h2>Com:
-            <%=jogador.getLugar().getPersonagens()%></h2>
+                            if (lc.getLeste() != null) {
+                                out.println("1) Para leste " + lc.getLeste().getDescricao());
+                            }
+                            if (lc.getOeste() != null) {
+                                out.println("2) Para Oeste " + lc.getOeste().getDescricao());
+                            }
+                            if (lc.getNorte() != null) {
+                                out.println("3) Para Norte " + lc.getNorte().getDescricao());
+                            }
+                            if (lc.getSul() != null) {
+                                out.println("4) Para Sul " + lc.getSul().getDescricao());
+                            }
 
-        <h4>Mensagens
-            <%=jogador.getLugar().getMensagens()%></h2>
+                            %>
+                        </pre>
 
-
-        <pre><%
-
-            if (lc.getLeste() != null) {
-                out.println("1) Para leste " + lc.getLeste().getDescricao());
-            }
-            if (lc.getOeste() != null) {
-                out.println("2) Para Oeste " + lc.getOeste().getDescricao());
-            }
-            if (lc.getNorte() != null) {
-                out.println("3) Para Norte " + lc.getNorte().getDescricao());
-            }
-            if (lc.getSul() != null) {
-                out.println("4) Para Sul " + lc.getSul().getDescricao());
-            }
-
-            %>
-        </pre>
-        <form method="POST" action="principal.jsp">
-            Movimento:<input type="text" name="movimento" value="" /><br/>
-            Mensagem:<input type="text" name="mensagem" value="" /><br/>
-            <input type="submit" value="Enviar" />
-        </form>
-</body>
+                        <form method="POST" action="principal.jsp">
+                            <label class="form-control"><i class="glyphicon glyphicon-road"></i> Movimento:</label>
+                            <input type="text" name="movimento" value="" /><br/>
+                            <label class="form-control"><i class="glyphicon glyphicon-comment"></i> Mensagem:</label>
+                            <input type="text" name="mensagem" value="" /><br><br>
+                            <input class="btn btn-success" type="submit" value="Enviar" />
+                        </form>
+                    </legend>
+                </div>
+                <div class="col-md-6">
+                    <img src="imgs/sala.jpg" style="width: 100%;border: 1px solid #000;margin: 10px 0px 10px 0px;">
+                </div>
+            </div>
+        </div> 
+        <!-- final -->
+    </body>
 </html>
