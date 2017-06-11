@@ -35,13 +35,33 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Jogo 2017</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css"> 
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
+        <link rel="stylesheet" type="text/css" href="css/estilo.css"> 
+        <script src="js/jquery-3.2.1.min.js.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Quem Somos</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav" style="float: right">
+                        <li><a href="#"><i class="glyphicon glyphicon-user"></i> <%=jogador.getNome()%></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <h1>Olá <%=jogador.getNome()%></h1>
         <%
-lc = jogador.getLugar();
+            lc = jogador.getLugar();
         %>
 
 
